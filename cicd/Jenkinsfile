@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages {
+        stage('node pipeline') {
+            agent {
+                docker { image 'node:20.11.1-alpine3.19' }
+            }
+            stages {
+                stage('checkout') {
+                    steps {
+                        echo "hola mundo"
+                    }
+
+                }
+            }
+        }
+    }
+}
