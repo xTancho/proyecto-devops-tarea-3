@@ -1,0 +1,6 @@
+name: proyecto-devops
+services:
+   backend:
+     image: 
+     environment:
+     secrets:
