@@ -3,4 +3,6 @@ services:
    backend:
      image: 
      environment:
+      - AMBIENTE=development
+      - API_KEY=asdfasdfds
      secrets:

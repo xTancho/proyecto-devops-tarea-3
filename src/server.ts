@@ -8,6 +8,14 @@ app.get("/", (req, res) => {
   res.send("hola mundo");
 });
 
+app.get("/info", (req, res) => {
+  res.send(process.env.AMBIENTE);
+});
+
+app.get("/info", (req, res) => {
+  res.send(process.env.API_KEY);
+});
+
 app.post("/calcular", (req, res) => {
   const operacion = req.body;
   if (operacion.operacion === "add") {
