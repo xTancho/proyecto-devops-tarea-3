@@ -1,4 +1,4 @@
-name: mi-proyecto-devops-tarea-3
+name: proyecto-devops
 services:
   mi-proyecto-devops-tarea-3:
     image: localhost:8082/mi-proyecto-devops-tarea-3
@@ -7,3 +7,5 @@ services:
       - "3000:3000"
     environment:
       - AMBIENTE=development
+    volumes:
+    - /tmp/ficheros-contenedor:/var/ficheros
