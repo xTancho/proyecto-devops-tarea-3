@@ -1,8 +1,9 @@
-name: proyecto-devops
+name: mi-proyecto-devops-tarea-3
 services:
-   backend:
-     image: 
-     environment:
+  mi-proyecto-devops-tarea-3:
+    image: localhost:8082/mi-proyecto-devops-tarea-3
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
       - AMBIENTE=development
-      - API_KEY=asdfasdfds
-     secrets:
