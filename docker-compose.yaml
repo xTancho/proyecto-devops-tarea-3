@@ -1,11 +1,10 @@
 name: proyecto-devops
 services:
-  mi-proyecto-devops-tarea-3:
-    image: localhost:8082/mi-proyecto-devops-tarea-3
-    restart: always
-    ports:
-      - "3000:3000"
-    environment:
-      - AMBIENTE=development
-    volumes:
-    - /tmp/ficheros-contenedor:/var/ficheros
+   proyecto-devops:
+      image: localhost:8082/proyecto-devops
+      restart: always
+      ports:
+        - "3000:3000"
+      environment:
+        - NODE_ENV=development
+      secrets:
