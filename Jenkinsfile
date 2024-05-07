@@ -9,17 +9,17 @@ pipeline {
                 }
             }
             stages {
-                stage('instalar dependencias') {
+                stage('Instalar dependencias') {
                     steps {
                         sh 'npm install'
                     }
                 }
-                stage('ejecutar test') {
+                stage('Ejecutar test') {
                     steps {
                         sh 'npm run test'
                     }
                 }
-                stage('hacer build') {
+                stage('Compilar proyecto') {
                     steps {
                         sh 'npm run build'
                     }
@@ -51,18 +51,18 @@ pipeline {
         //         }
         //     }
         // }
-        // stage('crear imagen docker') {
-        //     steps {
-        //         script {
-        //             docker.withRegistry('http://localhost:8082', 'nexus-key') {
-        //                 sh 'docker build -t localhost:8082/mi-proyecto-devops .'
-        //                 sh "docker tag localhost:8082/mi-proyecto-devops localhost:8082/mi-proyecto-devops:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
-        //                 sh 'docker push localhost:8082/mi-proyecto-devops'
-        //                 sh "docker push localhost:8082/mi-proyecto-devops:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
-        //             }
-        //         }
-        //     }
-        // }
+        stage('Generar imagen docker') {
+            steps {
+                script {
+                    docker.withRegistry('http://localhost:8082', 'nexus-key') {
+                        sh 'docker build -t localhost:8082/mi-proyecto-devops-tarea-3 .'
+                        sh "docker tag localhost:8082/mi-proyecto-devops-tarea-3 localhost:8082/mi-proyecto-devops-tarea-3:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
+                        sh 'docker push localhost:8082/mi-proyecto-devops-tarea-3'
+                        sh "docker push localhost:8082/mi-proyecto-devops-tarea-3:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
+                    }
+                }
+            }
+        }
         // stage('deploy to compose') {
         //     steps {
         //         script {
