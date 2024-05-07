@@ -26,31 +26,31 @@ pipeline {
                 }
             }
         }
-        // stage("code quality") {
-        //     stages {
-        //         stage("build & SonarQube analysis") {
-        //             agent { 
-        //                 docker { 
-        //                     image 'sonarsource/sonar-scanner-cli'
-        //                     args  '--network="devops-infra_default"'
-        //                     reuseNode true
-        //                 }
-        //             }
-        //             steps {
-        //                 withSonarQubeEnv('sonarqube') {
-        //                     sh 'sonar-scanner'
-        //                 }
-        //             }
-        //         }
-        //         stage("Quality Gate") {
-        //             steps {
-        //                 timeout(time: 1, unit: 'HOURS') {
-        //                     waitForQualityGate abortPipeline: true
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+        stage("code quality") {
+            stages {
+                stage("build & SonarQube analysis") {
+                    agent { 
+                        docker { 
+                            image 'sonarsource/sonar-scanner-cli'
+                            args  '--network="devops-infra_default"'
+                            reuseNode true
+                        }
+                    }
+                    steps {
+                        withSonarQubeEnv('sonarqube') {
+                            sh 'sonar-scanner'
+                        }
+                    }
+                }
+                stage("Quality Gate") {
+                    steps {
+                        timeout(time: 1, unit: 'HOURS') {
+                            waitForQualityGate abortPipeline: true
+                        }
+                    }
+                }
+            }
+        }
         stage('Generar imagen docker') {
             steps {
                 script {
