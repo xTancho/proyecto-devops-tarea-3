@@ -2,8 +2,8 @@ import express from "express";
 import fs from "fs";
 import { dividir, multiplicar, restar, sumar } from "./calcular.js";
 
-const AMBIENTE = process.env.AMBIENTE;
-const API_KEY = process.env.API_KEY;
+const AMBIENTE = process.env.AMBIENTE || "desconocido";
+const API_KEY = process.env.API_KEY || '';
 
 const app = express();
 app.use(express.json());
