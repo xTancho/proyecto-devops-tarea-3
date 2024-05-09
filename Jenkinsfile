@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-        API_KEY = credentials('api-key-text')
-    }
     stages {
         stage("pipeline node") {
             agent {
