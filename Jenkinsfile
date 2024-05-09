@@ -63,7 +63,7 @@ pipeline {
                 }
             }
         }
-        stage('deploy to compose') {
+        stage('Deploy to compose') {
             steps {
                 script {
                     docker.withRegistry('http://localhost:8082', 'nexus-key') {

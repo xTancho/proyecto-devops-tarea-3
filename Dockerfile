@@ -4,6 +4,4 @@ WORKDIR /usr/src/app
 COPY ./dist ./dist
 COPY ./package.json .
 COPY ./node_modules ./node_modules
-COPY ./api_key.txt /var/jenkins_home/workspace/proyecto-devops-tarea-3_main/dist/
-COPY ./api_key.txt ./api_key.txt
 CMD ["node", "dist/index.js"]
