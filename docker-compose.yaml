@@ -6,9 +6,9 @@ services:
       - "3000:3000"
     environment:
       - AMBIENTE=development
-      - API_KEY=/run/secrets/api-key
-    secrets:
-      - api-key
-secrets:
-  api-key:
-    file: api_key.txt
+#       - API_KEY=/run/secrets/api-key
+#     secrets:
+#       - api-key
+# secrets:
+#   api-key:
+#     file: api_key.txt
